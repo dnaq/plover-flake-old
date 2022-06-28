@@ -50,11 +50,11 @@
     "plover-plugins-manager": {
       "flake": false,
       "locked": {
-        "lastModified": 1636062295,
-        "narHash": "sha256-+ASEFxjIeqOwwIwojOltA4nAG/HMz+px+wMXuCOc+Dw=",
+        "lastModified": 1656369175,
+        "narHash": "sha256-g9YmRiItiG3aQ8KUQOnLWpLEQ+WthM0IoXVP3x7cv5g=",
         "owner": "benoit-pierre",
         "repo": "plover_plugins_manager",
-        "rev": "d976d8a3dfd45e35da9697393f6708429f93ed6e",
+        "rev": "160394370e1fae3b485b7ac0c3282b84b0fa1f63",
         "type": "github"
       },
       "original": {
