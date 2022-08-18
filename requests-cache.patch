@@ -1,0 +1,13 @@
+diff --git a/pyproject.toml b/pyproject.toml
+index e0ff3d7..d418016 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -31,7 +31,7 @@ python        = "^3.7"
+ requests      = "^2.22"    # Needs no introduction
+ urllib3       = "^1.25.5"  # Use a slightly newer version than required by requests (for bugfixes)
+ appdirs       = "^1.4.4"   # For options that use platform-specific user cache dirs
+-attrs         = "^21.2"    # For response data models
++attrs         = "^22.1"    # For response data models
+ cattrs        = ">=1.8,<=22.2" # For response serialization
+ url-normalize = "^1.4"     # For improved request matching
+ 
