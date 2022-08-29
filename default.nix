@@ -108,10 +108,6 @@ let
     doCheck = false;
   };
 
-  my-requests-cache = with pkgs.python3Packages; requests-cache.overrideAttrs (old: {
-    patches = [ ./requests-cache.patch ];
-  });
-
   plugins-manager = with pkgs.python3Packages; buildPythonPackage rec {
     pname = "plover-plugins-manager";
     version = "master";
@@ -128,7 +124,7 @@ let
       pygments
       readme_renderer
       requests
-      my-requests-cache
+      requests-cache
       requests-futures
       setuptools
       wheel
