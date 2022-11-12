@@ -1,5 +1,6 @@
 { pkgs ? import <nixpkgs> {}, sources }:
 let
+  pyqt5 = pkgs.python3Packages.pyqt5.override { withMultimedia = true; };
   hidapi = with pkgs; with python3Packages; buildPythonPackage rec {
     pname = "hidapi";
     version = "0.11.0.post2";
@@ -77,6 +78,16 @@ let
 
     doCheck = false;
   };
+  plover-dict-commands = with pkgs.python3Packages; buildPythonPackage rec {
+    pname = "plover_dict_commands";
+    version = "0.2.5";
+    src = fetchPypi {
+      inherit pname version;
+      sha256 = "sha256-ki/M5V106YbQMjZQmkTNyBzFboVYi/x0hkLAXqPyk8Q=";
+    };
+    buildInputs = [ plover setuptools-scm ];
+    doCheck = false;
+  };
 
   plover = with pkgs.python3Packages; pkgs.qt5.mkDerivationWith buildPythonPackage rec {
     pname = "plover";
@@ -133,10 +144,25 @@ let
 
     doCheck = false;
   };
+  plover2cat = with pkgs.python3Packages; pkgs.qt5.mkDerivationWith buildPythonPackage rec {
+    pname = "plover2cat";
+    version = "master";
+    src = sources.plover2cat;
+    buildInputs = [ plover ];
+    propagatedBuildInputs = [
+      odfpy
+      pyparsing
+      plover-dict-commands
+    ];
+    dontWrapQtApps = true;
 
+    preFixup = ''
+      makeWrapperArgs+=("''${qtWrapperArgs[@]}")
+    '';
+  };
   plover-with-plugins = plover.overrideAttrs (old: rec {
     pname = "plover-with-plugins";
-    propagatedBuildInputs = old.propagatedBuildInputs ++ [ pkgs.python3Packages.setuptools plugins-manager ];
+    propagatedBuildInputs = old.propagatedBuildInputs ++ [ pkgs.python3Packages.setuptools plugins-manager plover2cat ];
 
     permitUserSite = true;
   });

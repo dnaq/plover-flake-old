@@ -79,6 +79,22 @@
         "type": "github"
       }
     },
+    "plover2cat": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1668236670,
+        "narHash": "sha256-eUDeZBA79D93i19F7Ae8jweqbftzwYaQ4au1OVKTxAI=",
+        "owner": "greenwyrt",
+        "repo": "plover2CAT",
+        "rev": "a3549f7956a524da3246e745413c0a93a1d4a636",
+        "type": "github"
+      },
+      "original": {
+        "owner": "greenwyrt",
+        "repo": "plover2CAT",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -86,6 +102,7 @@
         "plover": "plover",
         "plover-plugins-manager": "plover-plugins-manager",
         "plover-stroke": "plover-stroke",
+        "plover2cat": "plover2cat",
         "rtf-tokenize": "rtf-tokenize"
       }
     },
