@@ -144,6 +144,26 @@ let
 
     doCheck = false;
   };
+  spyll = with pkgs; with python3Packages; buildPythonPackage rec {
+    pname = "spyll";
+    version = "1.2.3";
+
+    src = fetchPypi {
+      inherit pname version;
+      hash = "sha256-g2ieAtU2+1FMY3jUWAH3KprefrtQMejyGn6KM7T5Av8=";
+    };
+  };
+  spylls = with pkgs; with python3Packages; buildPythonPackage rec {
+    pname = "spylls";
+    version = "0.1.7";
+
+    src = fetchPypi {
+      inherit pname version;
+      hash = "sha256-cEWJLcvTJNNoX2nFp2AGPnj7g5kTckzhgHfPCgyT8iA=";
+    };
+    
+    propagatedBuildInputs = [ spyll ];
+  };
   plover2cat = with pkgs.python3Packages; pkgs.qt5.mkDerivationWith buildPythonPackage rec {
     pname = "plover2cat";
     version = "master";
@@ -153,6 +173,8 @@ let
       odfpy
       pyparsing
       plover-dict-commands
+      spylls
+      dulwich
     ];
     dontWrapQtApps = true;
 
