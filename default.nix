@@ -177,6 +177,7 @@ let
       dulwich
     ];
     dontWrapQtApps = true;
+    doCheck = false;
 
     preFixup = ''
       makeWrapperArgs+=("''${qtWrapperArgs[@]}")
