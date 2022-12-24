@@ -169,7 +169,6 @@ let
     version = "master";
     src = sources.plover2cat;
     buildInputs = [ plover ];
-    patches = [ ./plover2cat.patch ];
     propagatedBuildInputs = [
       odfpy
       pyparsing
