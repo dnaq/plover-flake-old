@@ -1,6 +1,6 @@
 # A flake for Plover with plugin manager support
 
-## Depcrecation notice
+## Deprecation notice
 
 This repository will be deprecated soon in favour of dnaq/plover-plugin-flake
 which will subsequently be renamed and moved to this repository.
